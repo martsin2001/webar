@@ -5,6 +5,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatrialModule } from '../core/modules/material.module';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './core/services/auth.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'sign-in', pathMatch: 'full' },
@@ -18,7 +20,9 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes),
     ReactiveFormsModule,
+    HttpClientModule,
     MatrialModule
-  ]
+  ],
+  providers: [AuthService]
 })
 export class AuthModule {}
