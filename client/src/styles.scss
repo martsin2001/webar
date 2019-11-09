@@ -1,0 +1,28 @@
+@import 'common.scss';
+@import 'variables.scss';
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$custom-plate: (
+  0: #4284f3,
+  contrast: ()
+);
+
+$webar-primary: mat-palette($custom-plate, 0);
+$webar-accent: mat-palette($mat-pink, A200, A100, A400);
+
+$webar-warn: mat-palette($mat-red);
+
+$webar-theme: mat-light-theme($webar-primary, $webar-accent, $webar-warn);
+
+@include angular-material-theme($webar-theme);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
