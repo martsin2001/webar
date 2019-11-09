@@ -1,0 +1,49 @@
+<div class="sign-in-contianer">
+  <div class="sign-in-contianer__wrapper">
+    <div class="title">
+      Sign In
+    </div>
+
+    <form [formGroup]="signInForm">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" formControlName="email" />
+        <mat-error *ngIf="emailError && emailError['email']">
+          Please enter a valid email address.
+        </mat-error>
+        <mat-error *ngIf="emailError && emailError['required']">
+          Email is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Passowrd"
+          formControlName="password"
+          [type]="showPassword ? 'text' : 'password'"
+        />
+        <button
+          type="button"
+          matSuffix
+          mat-icon-button
+          (click)="showPassword = !showPassword"
+        >
+          <mat-icon>{{
+            showPassword ? 'visibility' : 'visibility_off'
+          }}</mat-icon>
+        </button>
+        <mat-error>
+          Password is required.
+        </mat-error>
+      </mat-form-field>
+
+      <button
+        type="submit"
+        class="webar-button webar-button--primary"
+        (click)="signIn()"
+      >
+        Sign In
+      </button>
+    </form>
+  </div>
+</div>
