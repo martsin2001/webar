@@ -51,6 +51,7 @@
         <mat-form-field>
           <input
             matInput
+            type="password"
             placeholder="Password"
             formControlName="password"
             required
@@ -62,14 +63,30 @@
         <mat-form-field>
           <input
             matInput
-            placeholder="Confirm Passeord"
+            type="password"
+            placeholder="Confirm Password"
             formControlName="confirmPassword"
             required
           />
-          <mat-error>
-            Confirm is required.
+          <mat-error
+            *ngIf="confirmPasswordError && confirmPasswordError['required']"
+          >
+            Confirmation password is required.
+          </mat-error>
+          <mat-error
+            *ngIf="
+              confirmPasswordError &&
+              confirmPasswordError['differentPassword'] &&
+              !confirmPasswordError['required']
+            "
+          >
+            Passwords is different.
           </mat-error>
         </mat-form-field>
+      </div>
+
+      <div class="response-error" *ngIf="responseError">
+        {{ responseError }}
       </div>
 
       <div class="button-contianer">
