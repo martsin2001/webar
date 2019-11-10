@@ -7,8 +7,9 @@ import {
 } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
 import { SignInCredentials } from '../../models/auth.interrface';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Subject, of } from 'rxjs';
+import { takeUntil, catchError } from 'rxjs/operators';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,6 +19,7 @@ import { takeUntil } from 'rxjs/operators';
 export class SignInComponent implements OnInit, OnDestroy {
   showPassword: boolean;
   signInForm: FormGroup;
+  responseError: string;
 
   private unsubscribe$: Subject<boolean> = new Subject();
 
@@ -36,8 +38,18 @@ export class SignInComponent implements OnInit, OnDestroy {
     if (this.signInForm.valid) {
       this.authService
         .signIn(this.signInForm.value as SignInCredentials)
-        .pipe(takeUntil(this.unsubscribe$))
+        .pipe(
+          catchError((err: HttpErrorResponse) => {
+            this.responseError = err.error;
+            return of(err);
+          }),
+          takeUntil(this.unsubscribe$)
+        )
         .subscribe(response => {
+          if (response.error) {
+            return;
+          }
+          this.responseError = null;
           console.log(response);
         });
     }
