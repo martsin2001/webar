@@ -14,10 +14,18 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   signIn(credentials: SignInCredentials): Observable<any> {
-    return this.http.post(environment.apiEndpoint + 'api/sign-in', credentials);
+    return this.http.post(
+      environment.apiEndpoint + 'api/sign-in',
+      credentials,
+      { observe: 'response' }
+    );
   }
 
   createAccount(credentials: SignUpCredentials) {
-    return this.http.post(environment.apiEndpoint + 'api/sign-up', credentials);
+    return this.http.post(
+      environment.apiEndpoint + 'api/sign-up',
+      credentials,
+      { observe: 'response' }
+    );
   }
 }
