@@ -18,6 +18,6 @@ export class AuthService {
   }
 
   createAccount(credentials: SignUpCredentials) {
-    this.http.post(environment.apiEndpoint + 'api/sign-up', credentials);
+    return this.http.post(environment.apiEndpoint + 'api/sign-up', credentials);
   }
 }

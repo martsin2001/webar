@@ -21,9 +21,13 @@ const createNewUser = data => {
 const signIn = async (req, res) => {
   const existingUser = await User.findOne({ email: req.body.email });
   if (existingUser) {
-    const { firstName, lastName, email } = existingUser;
-    const token = jwt.sign({ firstName, email }, 'secret_word');
-    res.status(201).send({ firstName, lastName, email, token });
+    if (existingUser.password === req.body.password) {
+      const { firstName, lastName, email } = existingUser;
+      const token = jwt.sign({ firstName, email }, 'secret_word');
+      res.status(201).send({ firstName, lastName, email, token });
+    } else {
+      res.status(400).send('Incorrect password!');
+    }
   } else {
     res.status(404).send('User not found!');
   }
@@ -31,7 +35,7 @@ const signIn = async (req, res) => {
 
 const signUp = async (req, res) => {
   const existingUser = await User.findOne({ email: req.body.email });
-  if (existingUser) {
+  if (!existingUser) {
     createNewUser(req.body)
       .then(newUser => {
         const { firstName, lastName, email } = newUser;

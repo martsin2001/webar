@@ -24,8 +24,13 @@ export class SignUpComponent implements OnInit {
 
   createAccount() {
     if (this.signUpForm.valid) {
-      this.authService.createAccount(this.signUpForm
-        .value as SignUpCredentials);
+      const credentials = this.signUpForm.value;
+      delete credentials.confirmPassword;
+      this.authService
+        .createAccount(credentials as SignUpCredentials)
+        .subscribe(response => {
+          console.log(response);
+        });
     }
   }
 
