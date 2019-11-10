@@ -1,3 +1,5 @@
+@import 'variables.scss';
+
 .sign-in-contianer {
   width: 100%;
   height: 100%;
@@ -24,6 +26,11 @@
     mat-form-field {
       width: 300px;
     }
+  }
+
+  .response-error {
+    color: $error;
+    text-align: center;
   }
 
   .webar-button {

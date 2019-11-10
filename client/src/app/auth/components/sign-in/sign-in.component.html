@@ -37,6 +37,10 @@
         </mat-error>
       </mat-form-field>
 
+      <div class="response-error" *ngIf="responseError">
+        {{ responseError }}
+      </div>
+
       <button
         type="submit"
         class="webar-button webar-button--primary"
