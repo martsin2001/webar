@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { SignInCredentials } from '../../models/auth.interrface';
+import {
+  SignInCredentials,
+  SignUpCredentials
+} from '../../models/auth.interrface';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
@@ -12,5 +15,9 @@ export class AuthService {
 
   signIn(credentials: SignInCredentials): Observable<any> {
     return this.http.post(environment.apiEndpoint + 'api/sign-in', credentials);
+  }
+
+  createAccount(credentials: SignUpCredentials) {
+    this.http.post(environment.apiEndpoint + 'api/sign-up', credentials);
   }
 }

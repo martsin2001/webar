@@ -1,3 +1,85 @@
-<p>
-  sign-up works!
-</p>
+<div class="sign-up-contianer">
+  <div class="sign-up-contianer__wrapper">
+    <div class="title">
+      Sign up for free
+    </div>
+
+    <form [formGroup]="signUpForm">
+      <div class="form-section form-section--multiple-inputs">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="First Name"
+            formControlName="firstName"
+            required
+          />
+          <mat-error>
+            First name is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Last Name"
+            formControlName="lastName"
+            required
+          />
+          <mat-error>
+            Last name is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-section form-section--single-input">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Email"
+            formControlName="email"
+            required
+          />
+          <mat-error *ngIf="emailError && emailError['email']">
+            Please enter a valid email address.
+          </mat-error>
+          <mat-error *ngIf="emailError && emailError['required']">
+            Email is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-section form-section--multiple-inputs">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Password"
+            formControlName="password"
+            required
+          />
+          <mat-error>
+            Password is required.
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Confirm Passeord"
+            formControlName="confirmPassword"
+            required
+          />
+          <mat-error>
+            Confirm is required.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="button-contianer">
+        <button
+          class="webar-button webar-button--secondary"
+          [routerLink]="['/auth/sign-up']"
+        >
+          Create Account
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
