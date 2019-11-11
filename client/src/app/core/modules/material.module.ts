@@ -1,10 +1,8 @@
 import { NgModule } from '@angular/core';
-import {
-  MatFormFieldModule,
-  MatInputModule,
-  MatIconModule,
-  MatButtonModule
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
 
 const MaterailModules = [
   MatFormFieldModule,

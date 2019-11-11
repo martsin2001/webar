@@ -9,7 +9,15 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './core/services/auth.interseptor';
 
 const routes: Routes = [
-  { path: 'auth', loadChildren: './auth/auth.module#AuthModule' }
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
+    pathMatch: 'prefix'
+  }
 ];
 
 @NgModule({
