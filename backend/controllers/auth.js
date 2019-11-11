@@ -1,13 +1,15 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 const createNewUser = data => {
   return new Promise(async (resolve, reject) => {
+    const bcryptedPassword = bcrypt.hashSync(data.password, 10);
     const newUser = new User({
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,
-      password: data.password
+      password: bcryptedPassword
     });
     try {
       await newUser.save();
@@ -19,10 +21,11 @@ const createNewUser = data => {
 };
 
 const signIn = async (req, res) => {
-  const existingUser = await User.findOne({ email: req.body.email });
-  if (existingUser) {
-    if (existingUser.password === req.body.password) {
-      const { firstName, lastName, email } = existingUser;
+  const foundUser = await User.findOne({ email: req.body.email });
+  if (foundUser) {
+    const compare = bcrypt.compareSync(req.body.password, foundUser.password);
+    if (compare) {
+      const { firstName, lastName, email } = foundUser;
       const token = jwt.sign({ firstName, email }, 'secret_word');
       res.status(200).send({ firstName, lastName, email, token });
     } else {
@@ -34,8 +37,8 @@ const signIn = async (req, res) => {
 };
 
 const signUp = async (req, res) => {
-  const existingUser = await User.findOne({ email: req.body.email });
-  if (!existingUser) {
+  const foundUser = await User.findOne({ email: req.body.email });
+  if (!foundUser) {
     createNewUser(req.body)
       .then(newUser => {
         const { firstName, lastName, email } = newUser;
@@ -44,7 +47,7 @@ const signUp = async (req, res) => {
       })
       .catch(err => res.status(500).send('Server error!'));
   } else {
-    res.status(409).send('Such user already exist!');
+    res.status(409).send('Such user already exists!');
   }
 };
 
