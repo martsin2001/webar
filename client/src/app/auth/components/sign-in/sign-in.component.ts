@@ -10,6 +10,7 @@ import { SignInCredentials } from '../../models/auth.interrface';
 import { Subject, of } from 'rxjs';
 import { takeUntil, catchError } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -23,10 +24,15 @@ export class SignInComponent implements OnInit, OnDestroy {
 
   private unsubscribe$: Subject<boolean> = new Subject();
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.initSignInForm();
+    this.authService.deleteToken();
   }
 
   ngOnDestroy() {
@@ -50,7 +56,7 @@ export class SignInComponent implements OnInit, OnDestroy {
             return;
           }
           this.responseError = null;
-          console.log(response);
+          this.router.navigateByUrl('/home');
         });
     }
   }

@@ -11,6 +11,7 @@ import { SignUpCredentials } from '../../models/auth.interrface';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -21,7 +22,11 @@ export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
   responseError: string;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.initSignUpForm();
@@ -43,7 +48,7 @@ export class SignUpComponent implements OnInit {
           if (response === 'error') {
             return;
           }
-          console.log(response);
+          this.router.navigateByUrl('/home');
         });
     }
   }
