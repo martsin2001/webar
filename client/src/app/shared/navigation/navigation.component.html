@@ -1,17 +1,26 @@
 <div class="nav-container">
   <div class="webar-logo">WebAR Logo</div>
   <div class="nav-items-container">
+    <ng-container *ngIf="displayAuthButtons === true">
+      <button
+        class="webar-button webar-button--primary"
+        [routerLink]="['/auth/sign-in']"
+      >
+        Sign In
+      </button>
+      <button
+        class="webar-button webar-button--secondary"
+        [routerLink]="['/auth/sign-up']"
+      >
+        Create Account
+      </button>
+    </ng-container>
     <button
+      *ngIf="displayAuthButtons === false"
       class="webar-button webar-button--primary"
       [routerLink]="['/auth/sign-in']"
     >
-      Sign In
-    </button>
-    <button
-      class="webar-button webar-button--secondary"
-      [routerLink]="['/auth/sign-up']"
-    >
-      Create Account
+      Sign out
     </button>
   </div>
 </div>
