@@ -24,7 +24,7 @@ const signIn = async (req, res) => {
     if (existingUser.password === req.body.password) {
       const { firstName, lastName, email } = existingUser;
       const token = jwt.sign({ firstName, email }, 'secret_word');
-      res.status(201).send({ firstName, lastName, email, token });
+      res.status(200).send({ firstName, lastName, email, token });
     } else {
       res.status(400).send('Incorrect password!');
     }
