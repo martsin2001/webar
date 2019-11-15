@@ -8,6 +8,8 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './core/services/auth.interseptor';
 import { AuthGuard } from './core/services/auth-guard.service';
+import { MatrialModule } from './core/modules/material.module';
+import { MainNavigationComponent } from './shared/main-navigation/main-navigation.component';
 
 const routes: Routes = [
   {
@@ -36,12 +38,13 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent],
+  declarations: [AppComponent, NavigationComponent, MainNavigationComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatrialModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
