@@ -9,11 +9,13 @@
       <div
         class="icon-contianer"
         (click)="selectItem(item)"
-        [ngClass]="{ selected: item.selected }"
+        [ngClass]="{ selected: currentRoute === '/webar/' + item.route }"
       >
         <img
           [src]="
-            'assets/icons' + (item.selected ? '/' : '/unselected-') + item.icon
+            'assets/icons' +
+            (currentRoute === '/webar/' + item.route ? '/' : '/unselected-') +
+            item.icon
           "
         />
       </div>

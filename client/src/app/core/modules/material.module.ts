@@ -19,4 +19,4 @@ const MaterailModules = [
   imports: [...MaterailModules],
   exports: [...MaterailModules]
 })
-export class MatrialModule {}
+export class MaterialModule {}

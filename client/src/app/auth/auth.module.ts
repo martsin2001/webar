@@ -4,7 +4,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { Routes, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatrialModule } from '../core/modules/material.module';
+import { MaterialModule } from '../core/modules/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './core/services/auth.service';
 
@@ -21,7 +21,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     HttpClientModule,
-    MatrialModule
+    MaterialModule
   ],
   providers: [AuthService]
 })
