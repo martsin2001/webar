@@ -1,0 +1,74 @@
+@mixin placeholder-font {
+  color: #7e88a9;
+  letter-spacing: -0.27px;
+  font-size: 13px;
+  font-weight: 100;
+}
+
+.user-panel-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 0px;
+
+  .serach-container {
+    display: flex;
+    align-items: center;
+    img {
+      margin-top: 2px;
+      transform: scale(0.9);
+    }
+    input {
+      width: 180px;
+      border: none;
+      font-size: 13px;
+      letter-spacing: -0.27px;
+      outline: none;
+      margin-left: 10px;
+      background: transparent;
+    }
+  }
+
+  .user-info-container {
+    display: flex;
+    align-items: center;
+    .bell {
+      margin: 5px 20px 0px 0px;
+      cursor: pointer;
+    }
+    .user-photo {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    .select-container {
+      display: flex;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 100;
+      line-height: 1.23;
+      letter-spacing: -0.27px;
+      color: #616b88;
+      margin-left: 10px;
+      user-select: none;
+      cursor: pointer;
+      .arrow-down {
+        transform: scale(1.1);
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+::placeholder {
+  @include placeholder-font();
+}
+
+:-ms-input-placeholder {
+  @include placeholder-font();
+}
+
+::-ms-input-placeholder {
+  @include placeholder-font();
+}

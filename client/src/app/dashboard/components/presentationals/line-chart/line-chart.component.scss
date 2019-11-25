@@ -1,0 +1,54 @@
+.chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px;
+  margin-bottom: 25px;
+  .first-part {
+    display: flex;
+    align-content: center;
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #616b88;
+    }
+    .data {
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 0.9;
+      text-align: center;
+      color: #616b88;
+      margin-left: 20px;
+    }
+    .percentages-container {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.27px;
+      color: #61b477;
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+      img {
+        display: block;
+        margin-right: 5px;
+      }
+    }
+  }
+  .second-part {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.33px;
+    color: #616b88;
+    display: flex;
+    align-items: center;
+    .expand-icon {
+      margin-left: 10px;
+    }
+  }
+}
+
+::ng-deep {
+  .highcharts-credits {
+    display: none;
+  }
+}

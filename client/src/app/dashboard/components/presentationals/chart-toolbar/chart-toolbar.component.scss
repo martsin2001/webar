@@ -1,0 +1,37 @@
+@mixin toolbar-selected-button {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: -0.27px;
+  color: #616b88;
+  background: white;
+}
+
+.toolbar-contianer {
+  width: 100%;
+  border: 1px solid #d2d7e6;
+  display: flex;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
+
+  .toolbar-button {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid #d2d7e6;
+    font-size: 13px;
+    letter-spacing: -0.27px;
+    color: #616b88;
+    cursor: pointer;
+    &:last-child {
+      border: none;
+    }
+    &:hover {
+      @include toolbar-selected-button();
+    }
+    &.selected {
+      @include toolbar-selected-button();
+    }
+  }
+}

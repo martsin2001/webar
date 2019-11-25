@@ -24,14 +24,11 @@ export class MainNavigationComponent implements OnInit {
     { icon: 'shop.svg', route: '', selected: false }
   ];
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  selectItem(item: NavItem) {
-    this.navigationItems.forEach(
-      (navitem: NavItem) => (navitem.selected = false)
-    );
-    item.selected = true;
+  redirectTo(route: string) {
+    this.router.navigateByUrl(`/webar/${route}`);
   }
 }

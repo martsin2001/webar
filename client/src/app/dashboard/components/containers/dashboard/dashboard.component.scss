@@ -1,0 +1,12 @@
+.dashboard-contianer {
+  width: 100%;
+  margin-top: 40px;
+}
+
+.first-section {
+  width: 60%;
+  app-chart-toolbar {
+    display: block;
+    margin-bottom: 20px;
+  }
+}

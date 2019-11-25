@@ -1,0 +1,26 @@
+<div class="chart-card">
+  <div class="chart-header">
+    <div class="first-part">
+      <div class="title">
+        Users
+      </div>
+      <div class="data">
+        731
+      </div>
+      <div class="percentages-container">
+        <img src="assets/icons/icon-arrow-up.svg" />
+        3,7%
+      </div>
+    </div>
+
+    <div class="second-part">
+      Last 7 days
+      <div class="expand-icon">
+        <img src="assets/icons/arrow-down.svg" />
+      </div>
+    </div>
+  </div>
+  <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions"
+    style="width: 100%; height: 300px; display: block;">
+  </highcharts-chart>
+</div>

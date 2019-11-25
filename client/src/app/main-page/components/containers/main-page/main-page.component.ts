@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material';
 import { Router, RouterEvent, NavigationEnd } from '@angular/router';
+import { GeneralService } from 'src/app/core/services/general.service';
 
 @Component({
   selector: 'app-main-page',
@@ -9,30 +10,30 @@ import { Router, RouterEvent, NavigationEnd } from '@angular/router';
 })
 export class MainPageComponent implements OnInit {
   @ViewChild('drawer', { static: false }) drawer: MatDrawer;
-  drawerClosed: boolean;
+  drawerClosed: any;
   currentRoute: string;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private generalService: GeneralService) {
     this.defineCurrentRoute();
+    this.drawerClosed = this.generalService.isDrawerClosed;
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   changeDrawerState(action: 'open' | 'close') {
     this.drawer.toggle();
     if (action === 'open') {
-      this.drawerClosed = false;
+      this.generalService.isDrawerClosed.next(false);
       return;
     }
     setTimeout(() => {
-      this.drawerClosed = true;
+      this.generalService.isDrawerClosed.next(true);
     }, 150);
   }
 
   private defineCurrentRoute() {
     this.router.events.subscribe((event: RouterEvent) => {
       if (event instanceof NavigationEnd) {
-        console.log(event.urlAfterRedirects);
         this.currentRoute = event.urlAfterRedirects;
       }
     });

@@ -8,7 +8,7 @@
     <ng-container *ngFor="let item of navigationItems">
       <div
         class="icon-contianer"
-        (click)="selectItem(item)"
+        (click)="redirectTo(item.route)"
         [ngClass]="{ selected: currentRoute === '/webar/' + item.route }"
       >
         <img

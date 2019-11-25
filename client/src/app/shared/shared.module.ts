@@ -5,16 +5,18 @@ import { MainNavigationComponent } from './main-navigation/main-navigation.compo
 import { DashboardPreviewComponent } from './dashboard-preview/dashboard-preview.component';
 import { MaterialModule } from '../core/modules/material.module';
 import { RouterModule } from '@angular/router';
+import { UserPanelComponent } from './user-panel/user-panel.component';
 
-const SHARED_COMPONENTS = [NavigationComponent, MainNavigationComponent, DashboardPreviewComponent];
+const SHARED_COMPONENTS = [
+  NavigationComponent,
+  MainNavigationComponent,
+  DashboardPreviewComponent,
+  UserPanelComponent
+];
 
 @NgModule({
   declarations: [...SHARED_COMPONENTS],
   exports: [...SHARED_COMPONENTS],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    RouterModule
-  ]
+  imports: [CommonModule, MaterialModule, RouterModule]
 })
-export class SharedModule { }
+export class SharedModule {}

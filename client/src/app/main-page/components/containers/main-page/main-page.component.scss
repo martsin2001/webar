@@ -53,4 +53,8 @@
     overflow: initial !important;
     z-index: 10 !important;
   }
+  .mat-drawer-content {
+    background: linear-gradient(to bottom, #fafbff, #f5f7fa);
+    padding: 0px 50px;
+  }
 }

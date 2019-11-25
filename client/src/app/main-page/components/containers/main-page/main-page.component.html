@@ -1,26 +1,22 @@
 <div class="app-contianer">
   <div class="navigation-container">
     <app-main-navigation [currentRoute]="currentRoute"></app-main-navigation>
-    <div
-      class="toggle-button"
-      (click)="changeDrawerState('open')"
-      *ngIf="drawerClosed"
-    >
+    <div class="toggle-button" (click)="changeDrawerState('open')" *ngIf="drawerClosed.getValue()">
       <img src="assets/icons/icon-arroe-left.svg" class="rotate-arrow" />
     </div>
   </div>
   <mat-drawer-container autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side" [opened]="true">
-      <div class="items-container"></div>
+      <div class="items-container">
+        <app-main-page-preview [currentRoute]="currentRoute"></app-main-page-preview>
+      </div>
     </mat-drawer>
+
+    <app-user-panel></app-user-panel>
 
     <router-outlet></router-outlet>
 
-    <div
-      class="toggle-button"
-      (click)="changeDrawerState('close')"
-      *ngIf="!drawerClosed"
-    >
+    <div class="toggle-button" (click)="changeDrawerState('close')" *ngIf="!drawerClosed.getValue()">
       <img src="assets/icons/icon-arroe-left.svg" />
     </div>
   </mat-drawer-container>
