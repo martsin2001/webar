@@ -1,12 +1,42 @@
 .dashboard-contianer {
   width: 100%;
   margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.default-sections-param {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
 }
 
 .first-section {
-  width: 60%;
+  width: calc(60% - 15px);
+  margin-right: 15px;
+  margin-bottom: 30px;
   app-chart-toolbar {
     display: block;
     margin-bottom: 20px;
+  }
+}
+
+.second-section {
+  width: calc(40% - 15px);
+  margin-left: 15px;
+  margin-bottom: 30px;
+}
+
+::ng-deep {
+  app-line-chart,
+  app-column-chart {
+    display: block;
+    height: 100%;
+    .chart-card {
+      height: 100%;
+      box-sizing: border-box;
+    }
   }
 }

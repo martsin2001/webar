@@ -49,4 +49,20 @@
   border-radius: 5px;
   box-shadow: 0 5px 15px -5px rgba(143, 154, 171, 0.15);
   background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  &--reference {
+    position: relative;
+    padding-top: 25px;
+    &__button {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      color: #7e95fb;
+      font-size: 13px;
+      cursor: pointer;
+    }
+  }
 }

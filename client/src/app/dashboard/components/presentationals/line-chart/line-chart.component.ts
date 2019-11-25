@@ -25,7 +25,9 @@ export class LineChartComponent implements OnInit {
           }
         },
         load: event => {
-          event.target.reflow();
+          setTimeout(() => {
+            event.target.reflow();
+          });
         }
       }
     },
@@ -33,21 +35,14 @@ export class LineChartComponent implements OnInit {
       text: null
     },
     xAxis: {
-      categories: [
-        'Oct 30',
-        'Oct 31',
-        'Nov 1',
-        'Nov 2',
-        'Nov 3',
-        'Nov 4',
-        'Nov 5'
-      ]
+      categories: ['Oct 30', 'Oct 31', 'Nov 1', 'Nov 2', 'Nov 3', 'Nov 4', 'Nov 5']
     },
     yAxis: {
       title: {
         text: null
       },
-      opposite: true
+      opposite: true,
+      max: 200
     },
     tooltip: {
       valueSuffix: ' °C'
@@ -88,9 +83,9 @@ export class LineChartComponent implements OnInit {
     }
   };
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() { }
+  ngOnInit() {}
 
   private reflow() {
     setTimeout(() => {

@@ -13,11 +13,14 @@
   border-radius: 5px;
   overflow: hidden;
   position: relative;
+  box-sizing: border-box;
 
   .toolbar-button {
     flex: 1;
     padding: 10px;
+    text-align: center;
     display: flex;
+    align-items: center;
     justify-content: center;
     border-right: 1px solid #d2d7e6;
     font-size: 13px;

@@ -1,0 +1,36 @@
+.chart-card {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #616b88;
+  }
+  &__right-now-section {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #616b88;
+  }
+}
+
+.chart-body {
+  margin-bottom: 15px;
+  &__users-amount {
+    font-size: 48px;
+    font-weight: 400;
+    color: #616b88;
+    margin: 10px 0px;
+  }
+  &__amount-label {
+    font-size: 13px;
+    color: #7e88a9;
+  }
+}

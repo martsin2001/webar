@@ -6,13 +6,15 @@ import { ChartToolbarComponent } from './components/presentationals/chart-toolba
 import { LineChartComponent } from './components/presentationals/line-chart/line-chart.component';
 import { ChartModule } from 'angular-highcharts';
 import { HighchartsChartComponent } from 'highcharts-angular';
+import { ColumnChartComponent } from './components/presentationals/column-chart/column-chart.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     ChartToolbarComponent,
     LineChartComponent,
-    HighchartsChartComponent
+    HighchartsChartComponent,
+    ColumnChartComponent
   ],
   imports: [
     CommonModule,

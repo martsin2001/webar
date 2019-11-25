@@ -1,14 +1,6 @@
 <div class="toolbar-contianer">
-  <div class="toolbar-button selected">
-    Users
-  </div>
-  <div class="toolbar-button">
-    Sessions
-  </div>
-  <div class="toolbar-button">
-    Bounce Rate
-  </div>
-  <div class="toolbar-button">
-    Session Duration
+  <div class="toolbar-button" *ngFor="let item of toolbarItems" [ngClass]="{selected: selectedItem?.name === item.name}"
+    (click)="selectItem(item)">
+    {{item.name}}
   </div>
 </div>
