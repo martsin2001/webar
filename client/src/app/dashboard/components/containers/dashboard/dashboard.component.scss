@@ -5,12 +5,12 @@
   flex-wrap: wrap;
 }
 
-.default-sections-param {
-  flex: 1;
+.default-sections-params {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: auto;
+  box-shadow: 0 5px 15px -5px rgba(143, 154, 171, 0.15);
 }
 
 .first-section {
@@ -27,6 +27,10 @@
   width: calc(40% - 15px);
   margin-left: 15px;
   margin-bottom: 30px;
+}
+
+.third-section {
+  width: calc(40% - 15px);
 }
 
 ::ng-deep {

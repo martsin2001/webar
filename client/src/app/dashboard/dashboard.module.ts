@@ -7,6 +7,7 @@ import { LineChartComponent } from './components/presentationals/line-chart/line
 import { ChartModule } from 'angular-highcharts';
 import { HighchartsChartComponent } from 'highcharts-angular';
 import { ColumnChartComponent } from './components/presentationals/column-chart/column-chart.component';
+import { TimeOfDayChartComponent } from './components/presentationals/time-of-day-chart/time-of-day-chart.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ColumnChartComponent } from './components/presentationals/column-chart/
     ChartToolbarComponent,
     LineChartComponent,
     HighchartsChartComponent,
-    ColumnChartComponent
+    ColumnChartComponent,
+    TimeOfDayChartComponent
   ],
   imports: [
     CommonModule,

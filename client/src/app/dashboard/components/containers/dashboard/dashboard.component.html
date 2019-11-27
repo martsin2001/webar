@@ -1,10 +1,14 @@
 <div class="dashboard-contianer">
-  <div class="first-section default-sections-param">
+  <div class="first-section default-sections-params">
     <app-chart-toolbar></app-chart-toolbar>
     <app-line-chart [reflowChart]="isDrawerClosed | async"></app-line-chart>
   </div>
 
-  <div class="second-section default-sections-param">
+  <div class="second-section default-sections-params">
     <app-column-chart [reflowChart]="isDrawerClosed | async"></app-column-chart>
+  </div>
+
+  <div class="third-section default-sections-params">
+    <app-time-of-day-chart></app-time-of-day-chart>
   </div>
 </div>

@@ -19,6 +19,14 @@
     left: -25px;
     bottom: 50px;
   }
+  .app-content {
+    height: 100%;
+    overflow-y: auto;
+    background: linear-gradient(to bottom, #fafbff, #f5f7fa);
+    padding: 0px 50px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+  }
 }
 
 .toggle-button {
@@ -52,9 +60,5 @@
   .mat-drawer-content {
     overflow: initial !important;
     z-index: 10 !important;
-  }
-  .mat-drawer-content {
-    background: linear-gradient(to bottom, #fafbff, #f5f7fa);
-    padding: 0px 50px;
   }
 }

@@ -12,9 +12,10 @@
       </div>
     </mat-drawer>
 
-    <app-user-panel></app-user-panel>
-
-    <router-outlet></router-outlet>
+    <div class="app-content">
+      <app-user-panel></app-user-panel>
+      <router-outlet></router-outlet>
+    </div>
 
     <div class="toggle-button" (click)="changeDrawerState('close')" *ngIf="!drawerClosed.getValue()">
       <img src="assets/icons/icon-arroe-left.svg" />
